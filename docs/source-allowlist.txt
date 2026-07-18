@@ -1,0 +1,30 @@
+# Explicit public-source provenance paths under the authorized read-only SmartAgriculture source.
+# This public list is intentionally limited to files whose retained public content
+# or direct source lineage needs review. Original runtime configuration, data layer,
+# SQL, ZIP, build output, IDE state and unreferenced WinForms project are absent.
+README.md
+SmartAgriculture.sln
+SmartAgriculture/App.axaml
+SmartAgriculture/App.axaml.cs
+SmartAgriculture/Converters/BoolToBrushConverter.cs
+SmartAgriculture/Converters/BoolToOnOffConverter.cs
+SmartAgriculture/Converters/DateTimeToOffsetConverter.cs
+SmartAgriculture/Converters/InvertBoolConverter.cs
+SmartAgriculture/Converters/StringNotNullOrEmptyToBoolConverter.cs
+SmartAgriculture/Models/SensorData.cs
+SmartAgriculture/Models/Threshold.cs
+SmartAgriculture/Program.cs
+SmartAgriculture/Services/TcpServerService.cs
+SmartAgriculture/SmartAgriculture.csproj
+SmartAgriculture/ViewModels/MainWindowViewModel.cs
+SmartAgriculture/ViewModels/MonitorViewModel.cs
+SmartAgriculture/Views/MainWindow.axaml
+SmartAgriculture/Views/MainWindow.axaml.cs
+SmartAgriculture/Views/MonitorView.axaml
+SmartAgriculture/Views/MonitorView.axaml.cs
+hardware/README.md
+hardware/firmware/.gitignore
+hardware/firmware/lib/ACD10/ACD10.cpp
+hardware/firmware/lib/ACD10/ACD10.h
+hardware/firmware/platformio.ini
+hardware/firmware/src/main.cpp

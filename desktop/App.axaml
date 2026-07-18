@@ -1,0 +1,76 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:conv="clr-namespace:SmartAgriculture.Converters"
+             x:Class="SmartAgriculture.App"
+             RequestedThemeVariant="Light">
+    <Application.Resources>
+        <conv:InvertBoolConverter x:Key="InvertBool"/>
+        <conv:BoolToOnOffConverter x:Key="BoolToOnOff"/>
+        <SolidColorBrush x:Key="PrimaryGreen">#2E7D32</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryGreenHover">#388E3C</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryGreenLight">#4CAF50</SolidColorBrush>
+        <SolidColorBrush x:Key="BackgroundLight">#F1F8E9</SolidColorBrush>
+        <SolidColorBrush x:Key="CardBackground">#FFFFFF</SolidColorBrush>
+        <SolidColorBrush x:Key="AccentGreen">#388E3C</SolidColorBrush>
+        <SolidColorBrush x:Key="TextOnPrimary">#FFFFFF</SolidColorBrush>
+        <SolidColorBrush x:Key="TextSecondary">#5F6B61</SolidColorBrush>
+        <SolidColorBrush x:Key="BorderLight">#E0E0E0</SolidColorBrush>
+        <SolidColorBrush x:Key="RowAlternate">#F9FBF7</SolidColorBrush>
+    </Application.Resources>
+    <Application.Styles>
+        <FluentTheme />
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
+        <!-- Primary Button: green background -->
+        <Style Selector="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryGreen}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextOnPrimary}"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="{StaticResource PrimaryGreenHover}"/>
+        </Style>
+        <Style Selector="Button:pressed">
+            <Setter Property="Background" Value="{StaticResource PrimaryGreenLight}"/>
+        </Style>
+        <!-- Secondary/Outline Button -->
+        <Style Selector="Button.Outline">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{StaticResource PrimaryGreen}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreen}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector="Button.Outline:pointerover">
+            <Setter Property="Background" Value="{StaticResource PrimaryGreen}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextOnPrimary}"/>
+        </Style>
+        <!-- White outline button for use on dark (e.g. header) -->
+        <Style Selector="Button.OutlineLight">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <Style Selector="Button.OutlineLight:pointerover">
+            <Setter Property="Background" Value="#40FFFFFF"/>
+        </Style>
+        <!-- TextBox: rounded, green focus border -->
+        <Style Selector="TextBox">
+            <Setter Property="CornerRadius" Value="6"/>
+            <Setter Property="Padding" Value="12,10"/>
+        </Style>
+        <Style Selector="TextBox:focus">
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryGreen}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+        <!-- TabItem: green when selected -->
+        <Style Selector="TabItem">
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style Selector="TabItem:selected">
+            <Setter Property="Foreground" Value="{StaticResource PrimaryGreen}"/>
+        </Style>
+    </Application.Styles>
+</Application>

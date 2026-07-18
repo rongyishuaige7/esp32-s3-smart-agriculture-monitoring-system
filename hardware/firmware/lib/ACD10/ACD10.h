@@ -1,0 +1,73 @@
+#pragma once
+//
+// FILE: ACD10.h
+// AUTHOR: Rob Tillaart
+// VERSION: 0.2.3
+// DATE: 2023-09-25
+// PURPOSE: Arduino library for for I2C ACD10 CO2 sensor
+// URL: https://github.com/RobTillaart/ACD10
+
+#include "Arduino.h"
+#include "Wire.h"
+
+#define ACD10_LIB_VERSION (F("0.2.3"))
+#define ACD10_DEFAULT_ADDRESS 0x2A
+
+#define ACD10_OK 0x00
+#define ACD10_NOT_READY 0x10
+#define ACD10_REQUEST_ERROR 0x11
+#define ACD10_CRC_ERROR 0x12
+
+#define ACD10_CALIBRATE_MANUAL 0x00
+#define ACD10_CALIBRATE_AUTO 0x01
+
+class ACD10
+{
+public:
+  ACD10(TwoWire *wire = &Wire);
+
+  bool begin();
+  bool isConnected();
+  uint8_t getAddress();
+
+  bool preHeatDone();
+  uint32_t preHeatMillisLeft();
+
+  int requestSensor();
+  bool requestReady();
+  int readSensor();
+  uint32_t getCO2Concentration();
+  uint16_t getTemperature();
+  uint32_t lastRead();
+
+  void setRequestTime(uint8_t milliseconds = 80);
+  uint8_t getRequestTime();
+
+  bool setCalibrationMode(uint8_t mode);
+  uint8_t readCallibrationMode();
+  bool setManualCalibration(uint16_t value);
+  uint16_t readManualCalibration();
+
+  void factoryReset();
+  bool readFactorySet();
+  void readFirmwareVersion(char *arr);
+  void readSensorCode(char *arr);
+
+  int getLastError();
+
+private:
+  uint8_t _address = 0x2A;
+  TwoWire *_wire;
+
+  int _command(uint8_t *arr, uint8_t size);
+  int _request(uint8_t *arr, uint8_t size);
+  uint8_t _crc8(uint8_t *arr, uint8_t size);
+
+  uint32_t _preHeatStart;
+  uint32_t _lastRead;
+  uint32_t _concentration;
+  uint16_t _temperature;
+  uint8_t _requestTime;
+  uint32_t _requestStart;
+  uint8_t _error;
+};

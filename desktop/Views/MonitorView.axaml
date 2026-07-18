@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:conv="clr-namespace:SmartAgriculture.Converters"
+             x:Class="SmartAgriculture.Views.MonitorView">
+  <UserControl.Resources>
+    <conv:BoolToBrushConverter x:Key="AlertToBorder"/>
+  </UserControl.Resources>
+  <Grid RowDefinitions="Auto,*,Auto" Margin="16">
+    <Border Padding="12,10" Background="{StaticResource CardBackground}" CornerRadius="8">
+      <StackPanel Orientation="Horizontal" Spacing="16">
+        <Button Content="加载示例数据（非真机）" Command="{Binding LoadDemoDataCommand}" />
+        <TextBlock Text="{Binding DataSourceStatus}" VerticalAlignment="Center" TextWrapping="Wrap" MaxWidth="560" Foreground="{StaticResource TextSecondary}"/>
+      </StackPanel>
+    </Border>
+    <Grid Grid.Row="1" ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" Margin="0,12,0,0">
+      <Border Grid.Row="0" Grid.Column="0" Padding="20" Margin="0,0,8,8" Background="#E3F2FD" CornerRadius="12" BorderThickness="3" BorderBrush="{Binding AlertTemperature, Converter={StaticResource AlertToBorder}}"><StackPanel Spacing="4"><TextBlock Text="🌡 温度 (°C)" FontWeight="Bold" Foreground="#1565C0"/><TextBlock Text="{Binding Temperature}" FontSize="36" FontWeight="Bold" Foreground="#0D47A1"/></StackPanel></Border>
+      <Border Grid.Row="0" Grid.Column="1" Padding="20" Margin="8,0,0,8" Background="#E8F5E9" CornerRadius="12" BorderThickness="3" BorderBrush="{Binding AlertHumidity, Converter={StaticResource AlertToBorder}}"><StackPanel Spacing="4"><TextBlock Text="💧 湿度 (%)" FontWeight="Bold" Foreground="#2E7D32"/><TextBlock Text="{Binding Humidity}" FontSize="36" FontWeight="Bold" Foreground="#1B5E20"/></StackPanel></Border>
+      <Border Grid.Row="1" Grid.Column="0" Padding="20" Margin="0,0,8,8" Background="#FFF3E0" CornerRadius="12" BorderThickness="3" BorderBrush="{Binding AlertLight, Converter={StaticResource AlertToBorder}}"><StackPanel Spacing="4"><TextBlock Text="☀ 光照 (Lux)" FontWeight="Bold" Foreground="#E65100"/><TextBlock Text="{Binding Light}" FontSize="36" FontWeight="Bold" Foreground="#BF360C"/></StackPanel></Border>
+      <Border Grid.Row="1" Grid.Column="1" Padding="20" Margin="8,0,0,8" Background="#FCE4EC" CornerRadius="12" BorderThickness="3" BorderBrush="{Binding AlertCo2, Converter={StaticResource AlertToBorder}}"><StackPanel Spacing="4"><TextBlock Text="🍃 CO₂ (ppm)" FontWeight="Bold" Foreground="#C2185B"/><TextBlock Text="{Binding Co2}" FontSize="36" FontWeight="Bold" Foreground="#880E4F"/></StackPanel></Border>
+      <Border Grid.Row="2" Grid.Column="0" Padding="20" Margin="0,0,8,0" Background="#F3E5F5" CornerRadius="12"><StackPanel Spacing="4"><TextBlock Text="🌍 气压 (hPa)" FontWeight="Bold" Foreground="#6A1B9A"/><TextBlock Text="{Binding Pressure}" FontSize="36" FontWeight="Bold" Foreground="#4A148C"/></StackPanel></Border>
+      <Border Grid.Row="2" Grid.Column="1" Padding="20" Margin="8,0,0,0" Background="#E0F7FA" CornerRadius="12"><StackPanel Spacing="8"><TextBlock Text="公开默认边界" FontWeight="Bold" Foreground="#00838F"/><TextBlock Text="不监听 TCP、不发送设备命令，不代表风扇、补光、告警或任何实体负载状态。" TextWrapping="Wrap" Foreground="#006064"/><TextBlock Text="{Binding LastUpdateTime, StringFormat='示例数据时间：{0}'}" Foreground="#006064"/></StackPanel></Border>
+    </Grid>
+    <Border Grid.Row="2" Padding="12" Margin="0,12,0,0" CornerRadius="12" BorderThickness="1" BorderBrush="{StaticResource BorderLight}" Background="{StaticResource CardBackground}"><StackPanel Spacing="6"><TextBlock Text="教学日志" FontWeight="Bold" Foreground="{StaticResource PrimaryGreen}"/><ItemsControl ItemsSource="{Binding LogLines}"><ItemsControl.ItemTemplate><DataTemplate><TextBlock Text="{Binding}" TextWrapping="Wrap" FontFamily="Consolas" FontSize="12"/></DataTemplate></ItemsControl.ItemTemplate></ItemsControl></StackPanel></Border>
+  </Grid>
+</UserControl>

@@ -1,0 +1,55 @@
+# Git/editor-local state
+.git/
+.agents/
+.codex/
+.idea/
+.vscode/
+.vs/
+*.iml
+*.ipr
+*.iws
+*.code-workspace
+
+# Desktop .NET local configuration and generated state
+desktop/bin/
+desktop/obj/
+*.user
+*.suo
+*.db
+*.sqlite
+*.db3
+
+# Firmware local configuration and generated state
+hardware/firmware/.pio/
+hardware/firmware/.vscode/
+hardware/firmware/src/config.local.h
+*.bin
+*.elf
+*.map
+*.hex
+*.o
+*.a
+*.d
+
+# Secrets, build/release artifacts and local noise
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+*.log
+*.tmp
+*.swp
+*.zip
+*.7z
+*.tar
+*.gz
+*.apk
+*.aab
+*.ipa
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc

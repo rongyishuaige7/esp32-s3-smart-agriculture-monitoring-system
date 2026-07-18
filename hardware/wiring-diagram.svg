@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">基于ESP32-S3的智能农业环境监测系统源码推导接口边界图</title>
+  <desc id="desc">这是根据公开源码整理的接口边界图，不是实物原理图、PCB、已验证接线或制造文件。</desc>
+  <style>text{font-family:Arial,"Noto Sans CJK SC",sans-serif;fill:#17322b}.box{stroke:#376d59;stroke-width:2;rx:14;ry:14}.line{stroke:#709b89;stroke-width:2}.muted{fill:#576b63;font-size:17px}.title{font-size:28px;font-weight:bold}.label{font-size:19px;font-weight:bold}.small{font-size:15px}</style>
+  <rect width="1100" height="560" fill="#f5faf7"/>
+  <text x="42" y="48" class="title">源码推导接口边界图（非实物接线 / 非电气审核）</text>
+  <rect x="410" y="200" width="280" height="145" class="box" fill="#d9f0e3"/>
+  <text x="477" y="244" class="label">ESP32-S3</text><text x="456" y="276" class="muted">公开默认：GPIO5/6/38 输入</text><text x="448" y="306" class="muted">Wi-Fi/TCP 默认不连接</text>
+  <rect x="50" y="135" width="245" height="90" class="box" fill="#fff7d6"/><text x="83" y="171" class="label">DHT11</text><text x="83" y="201" class="muted">GPIO4 数据</text>
+  <rect x="50" y="305" width="245" height="120" class="box" fill="#e9f2ff"/><text x="83" y="341" class="label">I²C 观察模块</text><text x="83" y="371" class="muted">BH1750 / ACD10 / BMP280</text><text x="83" y="399" class="muted">OLED · GPIO8 / GPIO9</text>
+  <rect x="805" y="135" width="245" height="100" class="box" fill="#ffe9e3"/><text x="838" y="171" class="label">风扇驱动候选</text><text x="838" y="201" class="muted">GPIO5 / GPIO6</text>
+  <rect x="805" y="305" width="245" height="100" class="box" fill="#f0eaff"/><text x="838" y="341" class="label">WS2812B 候选</text><text x="838" y="371" class="muted">GPIO38</text>
+  <line x1="295" y1="180" x2="410" y2="240" class="line"/><line x1="295" y1="365" x2="410" y2="300" class="line"/><line x1="690" y1="240" x2="805" y2="185" class="line"/><line x1="690" y1="300" x2="805" y2="355" class="line"/>
+  <text x="45" y="500" class="small">断电后再接线；确认模块型号、额定电压/电流、电平、驱动、保护和公共地。GPIO 不可直驱高电流或市电负载。</text>
+  <text x="45" y="530" class="small">任何线条、构建或源码常量均不代表真实负载动作、传感器准确、网络可靠或电气安全。</text>
+</svg>

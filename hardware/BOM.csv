@@ -1,0 +1,12 @@
+类别,器件,参考规格/接口,数量,公开源码证据,来源或待确认,边界说明
+主控,ESP32-S3 开发板,esp32-s3-devkitc-1 兼容,1,firmware/platformio.ini,待确认实物板型,不代表特定开发板、USB或供电方案已验证
+温湿度,DHT11/兼容模块,GPIO4 数字输入,0-1,firmware/src/main.cpp,待确认模块/上拉/电平,模块读数不是农业适宜性或可靠告警
+光照,BH1750/兼容模块,I2C 常见0x23,0-1,firmware/src/main.cpp,待确认模块/地址/电平,未按当前公开版本标定或真机验证
+二氧化碳,ACD10/兼容模块,I2C 常见0x2A,0-1,firmware/src/main.cpp,待确认模块/预热/电平,预热与读数不构成空气质量或安全结论
+气压,BMP280/兼容模块,I2C 常见0x76,0-1,firmware/src/main.cpp,待确认模块/地址/电平,未按当前公开版本标定或真机验证
+显示,SSD1306 OLED,I2C 常见0x3C,0-1,firmware/src/main.cpp,待确认屏幕/地址/供电,显示不等于设备在线或数据准确
+执行器候选,风扇与独立驱动,GPIO5/GPIO6 仅作驱动输入候选,0-1,firmware/src/main.cpp,待确认驱动/极性/额定值,GPIO不可直驱；默认不输出
+执行器候选,WS2812B/兼容灯带与独立供电,GPIO38 数据候选,0-1,firmware/src/main.cpp,待确认电平/电源/共地,默认不输出；不能称补光或告警已实现
+网络,可信局域网接入,可选Wi-Fi TCP单向遥测,0-1,firmware/src/config.h,待确认本机配置,无认证/TLS/设备身份；默认不连接
+桌面端,本机电脑,.NET 8 Avalonia,1,SmartAgriculture.sln,待确认操作系统/桌面环境,构建不等于真实界面/网络/数据库联调
+互连,导线/连接器/上拉/去耦/驱动保护,按实物和数据手册,若干,HARDWARE.md,待确认实物,接口图不是实物接线或PCB
