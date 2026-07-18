@@ -16,3 +16,9 @@ GitHub 仓库可见性、默认分支、当前 HEAD、Description/Topics 与 Act
 | 媒体/EDA | **未提供**实物照片、视频、原理图、PCB、Gerber、制造文件 | 外观、焊接、实际接线、生产能力或产品化状态 |
 
 只有公开仓 `main` 当前 exact SHA 已取得 completed / success 的 Actions 结果，并已回读仓库元数据后，Hardware Lab 与 Profile 才能引用该提交；不能预填成功或真机结论。
+
+## Historical media and EDA added on 2026-07-18
+
+sanitized historical photo(s), historical EDA derivative(s). See [MEDIA_EVIDENCE](MEDIA_EVIDENCE.md) for dates, sanitization, omissions, and evidence limits.
+
+This publication update adds historical evidence only. Current hardware re-test not run.
