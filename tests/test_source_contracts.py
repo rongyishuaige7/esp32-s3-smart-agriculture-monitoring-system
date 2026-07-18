@@ -92,8 +92,7 @@ class PublicSourceContracts(unittest.TestCase):
 
     def test_public_docs_preserve_boundaries_and_license_notice(self) -> None:
         self.assertIn('不是农业自动化产品', text('README.md'))
-        self.assertIn('**未执行**当前公开 commit 的日期化复测', text('README.md'))
-        self.assertIn('不代表无外设 I/O', text('README.md'))
+        self.assertIn('ESP32 GPIO 不得直接驱动风扇', text('README.md'))
         self.assertIn('没有 TCP listener', text('SECURITY.md'))
         notices = text('THIRD_PARTY_NOTICES.md')
         self.assertIn('Rob Tillaart', notices)

@@ -4,7 +4,6 @@
 
 [![Validate](https://github.com/rongyishuaige7/esp32-s3-smart-agriculture-monitoring-system/actions/workflows/validate.yml/badge.svg)](https://github.com/rongyishuaige7/esp32-s3-smart-agriculture-monitoring-system/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/own%20code-MIT-f97316.svg)](LICENSE)
-[![Hardware retest](https://img.shields.io/badge/hardware-not%20retested-6e7781.svg)](docs/PROJECT_STATUS.md)
 
 > [!CAUTION]
 > 这是环境数据展示与软硬件联调教学原型，不是农业自动化产品、可靠告警系统、远程控制系统、安全系统或生产部署方案。传感器数值、OLED、桌面界面、网络请求、CI 或构建成功，都不能证明环境准确、设备在线、命令送达、风扇/补光已动作、作物适宜性、有人处理或电气安全。
@@ -27,7 +26,7 @@ Avalonia / .NET 8 本地示例数据界面
   → 公开默认不监听网络、不发送命令、不提供设备控制或持久化入口
 ```
 
-- `ACD10` 代码等待预热；预热、失败、地址、电平和模块行为未在当前公开提交上复测。
+- `ACD10` 代码等待预热；使用前请核对预热、地址、电平、供电与模块行为。
 - 公开桌面端使用内置示例数据；它不提供真实设备接收、账号、数据库、持久化、迁移、备份、删除、审计或生产数据能力。
 - “本地显示阈值”只影响桌面端展示判断，公开默认不会同步给设备，更不会自动控制任何负载。
 
@@ -76,7 +75,7 @@ pio run -d hardware/firmware -e esp32-s3-public-default
 
 这只下载上游构建依赖并编译；不会烧录任何设备。公开默认不会连接 Wi-Fi/TCP，也不把 GPIO5、GPIO6、GPIO38 配置为输出。
 
-### 4. 受监督局域网/低压台架 opt-in（未按当前公开提交验证）
+### 4. 受监督局域网/低压台架 opt-in
 
 ```bash
 cp hardware/firmware/src/config.local.example.h hardware/firmware/src/config.local.h
