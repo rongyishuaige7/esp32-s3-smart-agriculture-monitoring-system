@@ -17,8 +17,8 @@ GitHub 仓库可见性、默认分支、当前 HEAD、Description/Topics 与 Act
 
 只有公开仓 `main` 当前 exact SHA 已取得 completed / success 的 Actions 结果，并已回读仓库元数据后，Hardware Lab 与 Profile 才能引用该提交；不能预填成功或真机结论。
 
-## Historical media and EDA added on 2026-07-18
+## 2026-07-18 新增的历史素材与 EDA
 
-sanitized historical photo(s), historical EDA derivative(s). See [MEDIA_EVIDENCE](MEDIA_EVIDENCE.md) for dates, sanitization, omissions, and evidence limits.
+已脱敏的历史照片和历史 EDA 衍生文件。日期、脱敏处理、未公开材料和证据边界见 [MEDIA_EVIDENCE](MEDIA_EVIDENCE.md)。
 
-This publication update adds historical evidence only. Current hardware re-test not run.
+本次发布仅新增历史证据。当前未进行真机复测。

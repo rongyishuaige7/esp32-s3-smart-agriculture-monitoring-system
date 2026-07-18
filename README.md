@@ -9,13 +9,13 @@
 > [!CAUTION]
 > 这是环境数据展示与软硬件联调教学原型，不是农业自动化产品、可靠告警系统、远程控制系统、安全系统或生产部署方案。传感器数值、OLED、桌面界面、网络请求、CI 或构建成功，都不能证明环境准确、设备在线、命令送达、风扇/补光已动作、作物适宜性、有人处理或电气安全。
 
-## Historical material evidence (2026-07-18 publication)
+## 历史素材证据（2026-07-18 发布）
 
-sanitized historical photo(s), historical EDA derivative(s). See [MEDIA_EVIDENCE](docs/MEDIA_EVIDENCE.md) for dates, sanitization, omissions, and evidence limits.
+已脱敏的历史照片和历史 EDA 衍生文件。日期、脱敏处理、未公开材料和证据边界见 [MEDIA_EVIDENCE](docs/MEDIA_EVIDENCE.md)。
 
-![Historical smart-agriculture desktop prototype, 2026-03-24](assets/photos/historical-prototype.jpg)
+![历史智能农业桌面原型，2026-03-24](assets/photos/historical-prototype.jpg)
 
-Historical media/EDA do not prove that the current public commit was flashed or re-tested on hardware. **Current hardware re-test not run.**
+历史照片、截图或 EDA 不证明当前公开提交已烧录或完成真机复测。**当前未进行真机复测。**
 
 
 ## 当前状态与证据边界
