@@ -54,7 +54,7 @@ def main() -> int:
         if path.stat().st_size > 5 * 1024 * 1024:
             errors.append(f'file exceeds 5 MiB: {rel}')
     contracts = {
-        'README.md': ['公开默认', '不是农业自动化产品'],
+        'README.md': ['系统功能', '不作为农业自动化'],
         'desktop/SmartAgriculture.csproj': ['<TargetFramework>net8.0</TargetFramework>', 'Avalonia'],
         'desktop/ViewModels/MonitorViewModel.cs': ['示例数据（非真机）', 'TryImportTeachingJson', 'no\n    /// account, database, TCP listener'],
         'desktop/Services/TelemetryParser.cs': ['Network listening and device commands are intentionally absent', 'json.Length > 4096'],
