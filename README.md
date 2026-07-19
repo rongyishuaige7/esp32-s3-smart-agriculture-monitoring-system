@@ -6,15 +6,15 @@
 [![License: MIT](https://img.shields.io/badge/own%20code-MIT-f97316.svg)](LICENSE)
 
 > [!CAUTION]
-> 这是环境数据展示与软硬件联调教学原型，不是农业自动化产品、可靠告警系统、远程控制系统、安全系统或生产部署方案。传感器数值、OLED、桌面界面、网络请求、CI 或构建成功，都不能证明环境准确、设备在线、命令送达、风扇/补光已动作、作物适宜性、有人处理或电气安全。
+> **使用提示：** 本项目用于环境数据采集、桌面界面和局域网遥测学习，不作为农业自动化、告警、远程控制或生产部署方案。
 
-## 项目照片与资料
+## 项目资料
 
 这里整理了项目照片、界面截图和相关资料；文件处理说明见 [MEDIA_EVIDENCE](docs/MEDIA_EVIDENCE.md)。
 
 ![智能农业桌面原型，2026-03-24](assets/photos/historical-prototype.jpg)
 
-## 公开源码范围
+## 系统功能
 
 ```text
 DHT11 / BH1750 / ACD10 / BMP280 / SSD1306
@@ -30,7 +30,7 @@ Avalonia / .NET 8 本地示例数据界面
 - 公开桌面端使用内置示例数据；它不提供真实设备接收、账号、数据库、持久化、迁移、备份、删除、审计或生产数据能力。
 - “本地显示阈值”只影响桌面端展示判断，公开默认不会同步给设备，更不会自动控制任何负载。
 
-## 硬件与电气边界
+## 硬件与电气说明
 
 | 模块 / 信号 | 源码接口 | 当前可确认事实 | 实物仍需确认 |
 | :-- | :-- | :-- | :-- |
@@ -43,7 +43,7 @@ Avalonia / .NET 8 本地示例数据界面
 | GPIO5 / GPIO6 | 风扇驱动信号候选 | 默认设为输入；opt-in 分支也固定低电平 | 驱动器、极性、电流、保护、共地与真实负载 |
 | GPIO38 | WS2812B 数据候选 | 默认设为输入；opt-in 分支输出黑色 | 灯带电源、电平、限流、共地与真实行为 |
 
-完整的 [BOM](hardware/BOM.csv)、[源码推导接线边界图](hardware/wiring-diagram.svg)和[硬件说明](HARDWARE.md)不是原理图、PCB、实物接线、制造文件或真机复测证据。断电后再接线；确认实际模块额定电压、电流、电平、供电能力、公共地、驱动与保护。ESP32 GPIO 不得直接驱动风扇、灯带或任何高电流/市电负载。
+[BOM](hardware/BOM.csv)、[接线图](hardware/wiring-diagram.svg)和[硬件说明](HARDWARE.md)列出了项目接口。断电后再接线，确认模块额定电压、电流、电平、供电能力、公共地、驱动与保护；ESP32 GPIO 不得直接驱动风扇、灯带或任何高电流/市电负载。
 
 ## 构建与本地教学配置
 
@@ -54,8 +54,6 @@ git clone https://github.com/rongyishuaige7/esp32-s3-smart-agriculture-monitorin
 cd esp32-s3-smart-agriculture-monitoring-system
 bash scripts/verify.sh
 ```
-
-脚本在隔离目录中运行公开范围扫描、结构检查、源码契约、`.NET 8` restore/build 和三种 PlatformIO 编译。它不会烧录 ESP32-S3、连接 Wi-Fi、启动 TCP listener、访问真实设备、读取传感器或执行实体动作。
 
 ### 2. 桌面端示例数据展示
 
@@ -73,8 +71,6 @@ python3 -m pip install 'platformio==6.1.19'
 pio run -d hardware/firmware -e esp32-s3-public-default
 ```
 
-这只下载上游构建依赖并编译；不会烧录任何设备。公开默认不会连接 Wi-Fi/TCP，也不把 GPIO5、GPIO6、GPIO38 配置为输出。
-
 ### 4. 受监督局域网/低压台架 opt-in
 
 ```bash
@@ -85,14 +81,9 @@ cp hardware/firmware/src/config.local.example.h hardware/firmware/src/config.loc
 
 `config.local.h` 被 Git 忽略。只有在使用者本机把 `ENABLE_EXPERIMENTAL_WIFI_TCP` 或 `ENABLE_EXPERIMENTAL_ACTUATORS` 设为精确值 `1` 时，相应 compile-time 分支才会存在。网络 opt-in 仅尝试**单向、无认证**的教学遥测；执行器 opt-in 仍固定让已知输出保持低电平/黑色，不提供自动控制或远程命令。它们不构成设备身份、授权、加密、命令确认、可靠通信、物理动作或电气安全保证。
 
-## 公开范围、验证与反馈
+## 项目资料说明
 
-- 公开候选从桌面原始工程单向隔离整理；原目录及其压缩源码快照不被上传、不反向覆盖。
-- 当前未公开实物照片、视频、屏幕截图、原理图、PCB、Gerber、制造文件、真实日志、真实传感器数据、Wi-Fi 信息、局域网地址、客户资料。
-- 当前 CI 与门禁只验证公开文件边界、源码契约与隔离构建；不验证 ESP32-S3、DHT11、BH1750、ACD10、BMP280、OLED、Wi-Fi、TCP、桌面界面、执行器、电气安全或端到端行为。
-- 只有在公开 commit 固定后，才可按 [VERIFICATION](docs/VERIFICATION.md) 填写日期、精确 commit、板型、模块、供电、电平、接线、每项通过/失败及脱敏素材。
-
-详见 [PROJECT_STATUS](docs/PROJECT_STATUS.md)、[SECURITY](SECURITY.md)、[HARDWARE](HARDWARE.md)、[PROTOCOL](docs/PROTOCOL.md) 与 [HARDWARE_LAB_CARD](docs/HARDWARE_LAB_CARD.md)。报告问题时，请不要提交 Wi-Fi 凭据、私网 IP/MAC、数据库配置/导出、真实环境数据、位置、照片 EXIF/GPS、串口日志、网络抓包或其他个人/敏感材料。
+本仓不包含本地 Wi-Fi 配置、私网地址、客户资料或真实环境数据。报告问题时请勿提交 Wi-Fi 凭据、私网 IP/MAC、数据库配置、照片 EXIF/GPS、串口日志或网络抓包。
 
 ## 许可与第三方组件
 
